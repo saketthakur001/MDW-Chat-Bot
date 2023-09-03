@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bot Example</title>
+    <style>
+        /* Bot styling */
+        #bot-container {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        #bot-button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="bot-container">
+        <button id="bot-button">Bot</button>
+        <div id="bot-options" style="display:none;">
+            <button onclick="redirect('login')">Login</button>
+            <button onclick="redirect('signup')">Signup</button>
+            <button onclick="redirect('services')">Services</button>
+        </div>
+    </div>
+
+    <script>
+        // Show or hide bot options
+        document.getElementById('bot-button').addEventListener('click', function() {
+            var options = document.getElementById('bot-options');
+            options.style.display = options.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Redirect to the selected page
+        function redirect(action) {
+            window.location.href = `/bot_action/${action}`;
+        }
+    </script>
+</body>
+</html>
